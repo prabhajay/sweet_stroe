@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const PORT = process.env.PORT || 3000;
 const dotenv = require('dotenv');
@@ -11,6 +13,10 @@ const orderRoutes = require('./routes/orderRoutes.js');
 
 dotenv.config();
 const app =express();
+
+const { connect } = require('mongoose');
+
+require('./DB/index.js')()
 
 // Middleware
 app.use(express.json());
